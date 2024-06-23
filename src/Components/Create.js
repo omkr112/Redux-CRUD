@@ -14,6 +14,10 @@ export default function Create() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        if (name.trim() === '' || email.trim() === '') {
+            alert('Please fill out all fields.');
+            return;
+        }
         dispatch(addUser({ id: users[users.length - 1].id + 1, name, email }))
         navigate('/');
     }
